@@ -5,6 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 
 import Inicio from './Inicio';
 import ResultadoBusqueda from './ResultadoBusqueda';
+import Articulo from './Articulo';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,11 @@ const App = () => {
           name="Resultados de búsqueda"
           component={ResultadoBusqueda}
           options={{title: 'Resultado de búsqueda', headerShown: true}}
+        />
+        <Stack.Screen
+          name="Artículo"
+          component={Articulo}
+          options={{title: 'Artículo', headerShown: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>

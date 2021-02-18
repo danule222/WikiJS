@@ -28,6 +28,12 @@ function comprobarJSON(lista) {
   }
 }
 
+function mostrarArticulo(titulo, navigation) {
+  navigation.navigate('Artículo', {
+    titulo: titulo,
+  });
+}
+
 export default ResultadoBusqueda = ({route, navigation}) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -51,7 +57,6 @@ export default ResultadoBusqueda = ({route, navigation}) => {
   }
 
   comprobarJSON(listaResultados);
-  console.log(busqueda);
 
   return (
     <View>
@@ -64,7 +69,7 @@ export default ResultadoBusqueda = ({route, navigation}) => {
           renderItem={({item}) => (
             <>
               <TouchableHighlight
-                onPress={() => console.log('uwu')}
+                onPress={() => mostrarArticulo(item.title, navigation)}
                 underlayColor="rgba(255, 240, 0, 0.2)">
                 <View style={styles.articuloContenedor}>
                   <View>

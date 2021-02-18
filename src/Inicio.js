@@ -131,6 +131,12 @@ function recortarTexto(texto) {
   return texto.slice(0, 120) + (texto.length > 120 ? '...' : '');
 }
 
+function mostrarArticulo(titulo, navigation) {
+  navigation.navigate('Artículo', {
+    titulo: titulo,
+  });
+}
+
 export default class Inicio extends Component {
   render() {
     comprobarJSON();
@@ -155,7 +161,9 @@ export default class Inicio extends Component {
               renderItem={({item}) => (
                 <>
                   <TouchableHighlight
-                    onPress={() => console.log('uwu')}
+                    onPress={() =>
+                      mostrarArticulo(item.title, this.props.navigation)
+                    }
                     underlayColor="rgba(255, 240, 0, 0.2)">
                     <View style={styles.articuloContenedor}>
                       <View>
